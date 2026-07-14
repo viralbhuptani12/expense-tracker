@@ -1,3 +1,7 @@
 2026-07-13 | food | 113.00 | Filter coffee at ab 
 2026-07-13 | food | 112.00 | Subway Sandwich 
 2026-07-13 | transport | 80.00 | uber bike from kandivali to borivali  
+2026-07-13 | food | 259.00 | Sandwich from Health Mahavir Nagar 
+2026-07-14 | bills | 18130.00 | US visa fees 
+2026-07-14 | bills | 1179.00 | Jio Fiber home 
+2026-07-14 | food  | 113.00 | ab coffee
