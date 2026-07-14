@@ -32,8 +32,11 @@ def view_summary():
     
     print(f"\n Total spent = ₹{total:.2f} \n")
     print("Where did you spend: ")
-    for category in by_category:
-        print(f" {category}: ₹{by_category[category]:.2f}")
+    ##print(by_category)
+    sorted_categories = sorted(by_category.items(), key=lambda item:item[1], reverse = True)
+    for name,amount in sorted_categories:
+        print(f"{name}: ₹{amount:.2f}")
+
     print()
 
 while True:
@@ -46,6 +49,5 @@ while True:
         break
     else:
         print("Please enter a correct choice")
-
 
 
