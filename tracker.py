@@ -66,17 +66,44 @@ def view_month():
 
     print()
 
+def delete_expense():
+    total = 0
+    print(f"List of entries \n")
+    with open("expenses.txt", "r") as f:
+        lines = f.readlines()
+        for i, line in enumerate(lines):
+            print(f"{i+1}: {line}")
+            total = i+1
+    choice = input("\n Select the entry to delete \n")
+    try:
+        choice = int(choice)
+        if choice<=total:
+                with open("expenses.txt", "w") as f:
+                    for i, line in enumerate(lines):
+                        if i != choice - 1:
+                            f.write(line)
+        else:
+            print(f"Enter a entry that exist")
+    except ValueError:
+            print("Please enter a valid number")
+
+
+
+
+
+
 while True:
-    user_choice = input( "What do you want to do add[a] or view summary[v] or view current month summary[c] or quit[q]?\n").lower()
+    user_choice = input( "What do you want to do add[a] or view summary[v] or view current month summary[c] or delete_expense[d] or quit[q]?\n").lower()
     if user_choice == "a":
         add_expense()
     elif user_choice == "v":
         view_summary()
     elif user_choice == "c":
         view_month()
+    elif user_choice == "d":  
+        delete_expense()
     elif user_choice == "q":
         break
     else: 
         print("Please enter a correct choice")
-
 

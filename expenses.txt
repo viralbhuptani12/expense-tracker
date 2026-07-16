@@ -10,5 +10,3 @@
 2026-07-15 | food | 50.00 | Icecream cone
 2026-07-15 | food | 2415.00 | Sizzlers
 2026-08-15 | food | 3000.00 | Sizzlers
-2026-08-15 | food | 3000.00 | Sizzlers
-2026-07-15 | food | 3000.00 | Sizzlers
