@@ -88,12 +88,28 @@ def delete_expense():
             print("Please enter a valid number")
 
 
+def search_expense():
+    found = False
+    keyword = input("What are you searching for? ").lower()
+    with open("expenses.txt", "r") as f:
+        for line in f:
+            if keyword in line:
+                found = True
+                print(f"{line}")
+
+        if found == False:
+            print(f"No matching expense found")
+
+
+
+
+
 
 
 
 
 while True:
-    user_choice = input( "What do you want to do add[a] or view summary[v] or view current month summary[c] or delete_expense[d] or quit[q]?\n").lower()
+    user_choice = input( "What do you want to do add[a] or view summary[v] or view current month summary[c] or delete_expense[d] or search_expense(s) or quit[q]?\n").lower()
     if user_choice == "a":
         add_expense()
     elif user_choice == "v":
@@ -102,6 +118,8 @@ while True:
         view_month()
     elif user_choice == "d":  
         delete_expense()
+    elif user_choice == "s":
+        search_expense()
     elif user_choice == "q":
         break
     else: 

@@ -10,3 +10,5 @@
 2026-07-15 | food | 50.00 | Icecream cone
 2026-07-15 | food | 2415.00 | Sizzlers
 2026-08-15 | food | 3000.00 | Sizzlers
+2026-07-21 | transport | 1000.00 | Fast tag recharge
+2026-07-21 | transport | 3000.00 | fuel 
