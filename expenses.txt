@@ -1,0 +1,14 @@
+2026-07-13 | food | 113.00 | Filter coffee at ab 
+2026-07-13 | food | 112.00 | Subway Sandwich 
+2026-07-13 | transport | 80.00 | uber bike from kandivali to borivali  
+2026-07-13 | food | 259.00 | Sandwich from Health Mahavir Nagar 
+2026-07-14 | bills | 18130.00 | US visa fees 
+2026-07-14 | bills | 1179.00 | Jio Fiber home 
+2026-07-14 | food  | 113.00 | ab coffee
+2026-07-15 | bills | 1200.00 | Door lock
+2026-07-15 | food | 26.00 | Mangesh vada paav
+2026-07-15 | food | 50.00 | Icecream cone
+2026-07-15 | food | 2415.00 | Sizzlers
+2026-08-15 | food | 3000.00 | Sizzlers
+2026-07-21 | transport | 1000.00 | Fast tag recharge
+2026-07-21 | transport | 3000.00 | fuel 
