@@ -2,11 +2,43 @@
 <html>
     <head>
         <title>My first web page</title>
+        <style>
+            h1 {
+                color:teal;
+            }
+            p {
+                color:gray;
+                font-size:25px;
+            }
+            
+            .btn{
+                padding:15px;
+                font-size:20px;
+                color:white;
+                border-radius:10px;
+                margin:15px;
+            }
+            #add-exp{
+                background-color:green;
+            }
+            #del-exp{
+                background-color:red;
+            }
+            div{
+                background-color:lightsteelblue;
+                max-width:400px;
+                margin:0 auto;
+                padding:20px;
+
+            }
+        </style>
     </head>
     <body>
+        <div>
         <h1>Hello, this is Viral's first webpage</h1>
         <p>Learning web development for Roohi </p>
-        <button>Add Expense</button>
+        <button class = "btn" id = "add-exp">Add Expense</button>
+        <button class="btn" id = "del-exp">Delete expesne</button>
         <ol>
             <li>Coffee - ₹113</li>
             <li>Uber - ₹80</li>
@@ -15,5 +47,6 @@
 
         </ol>
         <input type="text" placeholder = "Enter amount">
+        </div>
     </body>
 </html>
