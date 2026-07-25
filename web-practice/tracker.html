@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Expense Tracker</title>
+        <link rel="stylesheet" href="tracker.css">
+    </head>
+    <body>
+        <div>
+            <h1>Expense Tracker</h1>
+            <input type ="text" id = "category" placeholder ="Add categories - bills, transport, food">
+            <input type ="text" id = "amount" placeholder ="Enter amount">
+            <button id= "add-btn">Add expense</button>
+            <ul id="expense-list">
+
+            </ul>
+        </div>
+
+        <script>
+            document.getElementById("add-btn").addEventListener("click", function() {
+                let amount = document.getElementById("amount").value;
+                let category  = document.getElementById("category").value;
+                if(amount === "" || category === ""){
+                    alert("Please enter both the values");
+                }
+                else{
+                    document.getElementById("expense-list").innerHTML += "<li>" + category + " | ₹"  + amount + "</li>";
+                    document.getElementById("amount").value = "";
+                    document.getElementById("category").value = "";
+                }
+            });
+        </script>
+    </body>
+</html>
