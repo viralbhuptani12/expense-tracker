@@ -17,7 +17,8 @@
         </div>
 
         <script>
-            let total = 0;
+            let total = Number(localStorage.getItem("total") || 0);
+            document.getElementById("total").textContent = "Total ₹" + total;
             document.getElementById("add-btn").addEventListener("click", function() {
                 let amount = document.getElementById("amount").value;
                 let category  = document.getElementById("category").value;
@@ -34,10 +35,12 @@
                     delBtn.addEventListener("click", function(){
                     li.remove();
                     total = total - Number(amount);
+                    localStorage.setItem("total", total);
                     document.getElementById("total").textContent = "Total ₹" + total;
                     });
                     document.getElementById("amount").value = "";
                     total = total + Number(amount);
+                    localStorage.setItem("total", total);
                     document.getElementById("total").textContent = "Total ₹" + total;
                     document.getElementById("category").value = "";
                 }
