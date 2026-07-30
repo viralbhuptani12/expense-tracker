@@ -30,6 +30,7 @@
                     li.textContent = category + " | ₹"  + amount;
                     let delBtn = document.createElement("button");
                     delBtn.textContent = "Delete";
+                    delBtn.className = "delete-btn";
                     li.appendChild(delBtn);
                     document.getElementById("expense-list").appendChild(li);
                     delBtn.addEventListener("click", function(){

@@ -23,3 +23,10 @@ div{
     padding:10px;
     margin:10px;
 }
+.delete-btn{
+    background-color:red;
+    color:white;
+    border-radius:10px;
+    margin-left: 10px;
+    padding: 5px 10px;
+}
