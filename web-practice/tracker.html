@@ -17,6 +17,32 @@
         </div>
 
         <script>
+            let expenses = JSON.parse(localStorage.getItem("expenses")) || [];
+            render();
+            function render(){
+                document.getElementById("expense-list").innerHTML="";
+                for(let i=0;i<expenses.length;i++){
+                    let exp = expenses[i];
+                    let li = document.createElement("li");
+                    li.textContent = exp.category + " | ₹" + exp.amount;
+                    let delBtn = document.createElement("button");
+                    delBtn.textContent = "Delete";
+                    delBtn.className = "delete-btn";
+                    delBtn.addEventListener("click", function()
+                    {
+                        total = total - exp.amount;
+                        document.getElementById("total").textContent = "Total ₹" + total;
+                        localStorage.setItem("total", total);
+                        expenses.splice(i,1);
+                        localStorage.setItem("expenses", JSON.stringify(expenses));
+
+                        render();
+                    });
+                    li.appendChild(delBtn);
+                    document.getElementById("expense-list").appendChild(li);
+                 
+                }
+            }
             let total = Number(localStorage.getItem("total") || 0);
             document.getElementById("total").textContent = "Total ₹" + total;
             document.getElementById("add-btn").addEventListener("click", function() {
@@ -26,23 +52,13 @@
                     alert("Please enter both the values");
                 }
                 else{
-                    let li = document.createElement("li");
-                    li.textContent = category + " | ₹"  + amount;
-                    let delBtn = document.createElement("button");
-                    delBtn.textContent = "Delete";
-                    delBtn.className = "delete-btn";
-                    li.appendChild(delBtn);
-                    document.getElementById("expense-list").appendChild(li);
-                    delBtn.addEventListener("click", function(){
-                    li.remove();
-                    total = total - Number(amount);
-                    localStorage.setItem("total", total);
-                    document.getElementById("total").textContent = "Total ₹" + total;
-                    });
-                    document.getElementById("amount").value = "";
+                    expenses.push({category: category, amount: Number(amount)})
+                    localStorage.setItem("expenses", JSON.stringify(expenses));
                     total = total + Number(amount);
-                    localStorage.setItem("total", total);
                     document.getElementById("total").textContent = "Total ₹" + total;
+                    localStorage.setItem("total", total);
+                    render();
+                    document.getElementById("amount").value = "";
                     document.getElementById("category").value = "";
                 }
             });
