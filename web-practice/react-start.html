@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My first React app</title>
+        <!-- Load React from a CDN(no install required)-->
+         <script src= "https://unpkg.com/react@18/umd/react.development.js"></script>
+         <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+         <!--Babel lets us write nice react syntax in a plain HTML file-->
+         <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    </head>
+    <body>
+        <!--React will put your app inside the div-->
+        <div id="root"></div>
+
+        <!--Note: type = "text/babel" this tells the browser that "this is React code"-->
+        <script type = "text/babel">
+            function App(){
+                return <h1>This is Roohi's first React App</h1>;
+            }
+
+            const root = ReactDOM.createRoot(document.getElementById("root"));
+            root.render(<App />);
+        </script>
+
+    </body>
+</html>
