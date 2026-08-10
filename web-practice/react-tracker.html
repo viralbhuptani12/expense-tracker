@@ -1,0 +1,62 @@
+<!DOCtype HTML>
+<html>
+    <head>
+        <title>My tracker in react</title>
+        <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+        <!--Babel lets us write nice react syntax in html-->
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    </head>
+
+    <body>
+        <div id ="root"></div>
+        <script type = "text/babel">
+            function App(){
+                const[expenses, setExpenses] = React.useState([]);
+                const[total, setTotal] = React.useState(0);
+                const[category, setCategory] = React.useState("");
+                const[amount, setAmount] = React.useState("");
+                function addExpense(){
+                    if(category === "" || amount === "" ) {
+                        alert("Please enter both the values");
+                        return;
+                    }
+                    const newExpense = {category: category, amount: Number(amount)};
+                    setExpenses([...expenses, newExpense]);
+                    setTotal(total + Number(amount));
+                    setCategory("");
+                    setAmount("");
+                }
+
+                return (
+                    <div>
+                        <h1>Expense Tracker</h1>
+                        <h2>Total: ₹{total}</h2>
+
+                    <input 
+                        placeholder = "Category"
+                        value = {category}
+                        onChange = {(e) => setCategory(e.target.value)}
+                    />
+                    <input
+                        placeholder = "Amount"
+                        value = {amount}
+                        onChange = {(e) => setAmount(e.target.value)}
+                    />
+                    <button onClick = {addExpense} >Add expense</button>
+
+                        <ul>
+                            {expenses.map((exp, index) => (
+                                <li key ={index}> {exp.category} | ₹{exp.amount}</li>
+                            )) }
+                        </ul>
+
+
+                    </div>
+                );   
+            }
+            const root = ReactDOM.createRoot(document.getElementById("root"));
+            root.render(<App/>);
+        </script>
+    </body>
+</html>
