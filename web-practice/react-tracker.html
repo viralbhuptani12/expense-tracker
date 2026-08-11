@@ -27,6 +27,12 @@
                     setCategory("");
                     setAmount("");
                 }
+                function deleteExpense(index){
+                    const newExpenses = expenses.filter((exp,i) => i !== index);
+                    setExpenses(newExpenses);
+                    setTotal(total - expenses[index].amount);
+
+                }
 
                 return (
                     <div>
@@ -47,7 +53,10 @@
 
                         <ul>
                             {expenses.map((exp, index) => (
-                                <li key ={index}> {exp.category} | ₹{exp.amount}</li>
+                                <li key ={index}> {exp.category} | ₹{exp.amount}
+                                    <button onClick= {() => deleteExpense(index)}>Delete</button>
+
+                                </li>
                             )) }
                         </ul>
 
