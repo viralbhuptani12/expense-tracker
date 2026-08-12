@@ -12,8 +12,8 @@
         <div id ="root"></div>
         <script type = "text/babel">
             function App(){
-                const[expenses, setExpenses] = React.useState([]);
-                const[total, setTotal] = React.useState(0);
+                const[expenses, setExpenses] = React.useState(JSON.parse(localStorage.getItem("expenses"))|| []);
+                const[total, setTotal] = React.useState(Number(localStorage.getItem("total")) || 0);
                 const[category, setCategory] = React.useState("");
                 const[amount, setAmount] = React.useState("");
                 function addExpense(){
@@ -33,6 +33,10 @@
                     setTotal(total - expenses[index].amount);
 
                 }
+                React.useEffect(() => {
+                    localStorage.setItem("expenses", JSON.stringify(expenses));
+                    localStorage.setItem("total", total);
+                }, [expenses, total]);
 
                 return (
                     <div>
