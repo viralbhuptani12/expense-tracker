@@ -12,8 +12,16 @@
         <div id ="root"></div>
         <script type = "text/babel">
             function App(){
-                const[expenses, setExpenses] = React.useState(JSON.parse(localStorage.getItem("expenses"))|| []);
-                const[total, setTotal] = React.useState(Number(localStorage.getItem("total")) || 0);
+                const[expenses, setExpenses] = React.useState([]);
+                const[total, setTotal] = React.useState(0);
+                //Load expenses from the backend when the app starts
+                React.useEffect(() => {
+                    fetch("http://127.0.0.1:8000/expenses")
+                    .then((response) => response.json())
+                    .then((data) => {
+                        setExpenses(data);
+                    });
+                }, []);
                 const[category, setCategory] = React.useState("");
                 const[amount, setAmount] = React.useState("");
                 function addExpense(){
@@ -22,11 +30,19 @@
                         return;
                     }
                     const newExpense = {category: category, amount: Number(amount)};
+                    fetch("http://127.0.0.1:8000/expenses", {
+                        method: "POST",
+                        headers: {"Content-Type": "application/json"},
+                        body: JSON.stringify(newExpense)
+                    })
+                    .then((response) => response.json())
+                    .then((data) => {
                     setExpenses([...expenses, newExpense]);
                     setTotal(total + Number(amount));
                     setCategory("");
                     setAmount("");
-                }
+                });
+            }
                 function deleteExpense(index){
                     const newExpenses = expenses.filter((exp,i) => i !== index);
                     setExpenses(newExpenses);
